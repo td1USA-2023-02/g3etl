@@ -3,7 +3,7 @@ import pandas as pd
 # ETL: Extract, Transform, Load
 
 # Ruta al archivo CSV de origen
-archivo_origen = "data.csv"
+archivo_origen = "g3etl/data.csv"
 
 # Leer los datos desde el archivo CSV y especificar que la primera fila es el encabezado
 datos = pd.read_csv(archivo_origen, delimiter=';', header=0)
@@ -26,3 +26,19 @@ datos.to_csv(archivo_destino, index=False)
 
 # Verificar que se haya guardado correctamente
 print(f"Los datos transformados se han guardado en {archivo_destino}")
+
+datos['resta'] = datos['columna1'] - datos['columna2']
+datos['multiplicacion'] = datos['columna1'] * datos['columna2']
+datos['division'] = datos['columna1'] / datos['columna2']
+
+print(datos.head())
+archivo_destino = "datos_transformados.csv"
+
+datos['Paridad']=['0' if resultado % 2==0 else '1' for resultado in datos['multiplicacion']]
+print(datos.head())
+archivo_destino = "datos_transformados.csv"
+
+    
+
+
+    
