@@ -37,7 +37,7 @@ archivo_destino = "datos_transformados.csv"
 datos['Paridad']=['0' if resultado % 2==0 else '1' for resultado in datos['multiplicacion']]
 print(datos.head())
 archivo_destino = "datos_transformados.csv"
-
+datos.to_csv(archivo_destino, index=False)
     
 
 
